@@ -1,0 +1,26 @@
+<h1>Registros de Hidratação</h1>
+
+<%= link_to 'Adicionar Novo Registro', new_hydration_record_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Quantidade (ml)</th>
+      <th>Data</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @hydration_records.each do |record| %>
+      <tr>
+        <td><%= record.amount %></td>
+        <td><%= record.recorded_at.strftime("%d/%m/%Y %H:%M") %></td>
+        <td>
+          <%= link_to 'Mostrar', hydration_record_path(record) %>
+          <%= link_to 'Editar', edit_hydration_record_path(record) %>
+          <%= link_to 'Excluir', hydration_record_path(record), method: :delete, data: { confirm: 'Você tem certeza?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,13 @@
+<h1>Registro de Hidratação</h1>
+
+<p>
+  <strong>Quantidade:</strong>
+  <%= @hydration_record.amount %> ml
+</p>
+<p>
+  <strong>Data:</strong>
+  <%= @hydration_record.recorded_at.strftime("%d/%m/%Y %H:%M") %>
+</p>
+
+<%= link_to 'Editar', edit_hydration_record_path(@hydration_record) %> |
+<%= link_to 'Voltar', hydration_records_path %>

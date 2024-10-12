@@ -1,0 +1,2 @@
+module HydrationRecordsHelper
+end

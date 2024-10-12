@@ -1,0 +1,25 @@
+<h1>Editar Registro de Hidratação</h1>
+
+<%= form_with model: @hydration_record, local: true do |form| %>
+  <% if @hydration_record.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@hydration_record.errors.count, "erro") %> impedem que o registro seja salvo:</h2>
+      <ul>
+        <% @hydration_record.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :amount %>
+    <%= form.number_field :amount %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Atualizar Registro' %>
+  </div>
+<% end %>
+
+<%= link_to 'Voltar', hydration_records_path %>
